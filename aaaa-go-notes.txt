@@ -1,3 +1,7 @@
+Chapter 1
+
+Basics & Duplicate Code
+
 function is main
 
 variable usages:
@@ -8,7 +12,7 @@ var s string = "" < redundant but ncessary in other cases where they are not of 
 
 
 ## Maps
-A map is a reference to the data structure create d by make. When a map is passed to a function, the function receives a copy of the reference, so any changes the called function makes to the underlying data structure will be visible through the caller’s map reference too.
+A map is a reference to the data structure created by make. When a map is passed to a function, the function receives a copy of the reference, so any changes the called function makes to the underlying data structure will be visible through the caller’s map reference too.
 In our example, the values inserted into the counts map by countLines are seen by main.
 
 
@@ -44,3 +48,12 @@ for {
 
 A map is a reference to the data structure created by make. When a map is passed to a function, the function receives a copy of the reference, so any changes the called function makes to the underlying data structure will be visible through the caller's map reference too.
 In our example, the values inserted into the counts map by countLines are seen by main.
+
+
+## References
+dup 1 good reference: https://stackoverflow.com/a/49715256
+
+Lissajous
+
+- const declaration is unchangeable
+- The expressions []color.Color{...} and gif.GIF{...} are composite literals, a compact notation for instantiating any of Go's composite types from a sequence of element values. Here, the first one is a slice and the second one is a struct.
