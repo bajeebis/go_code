@@ -73,9 +73,14 @@ In our example, the values inserted into the counts map by countLines are seen b
 - Lastly, Printf writes th response to the standard output. First it was bytes but I converted it to strings via strings().
 
 ### Fetching URLs Concurrently
-- goroutine is a concurrent function execution. A channel is a communication mechanism that allow one goroutine to pass values of a specified type to another goroutine. The function main runs in a goroutine and the go statement creates additional goroutines.
+goroutine is a concurrent function execution. A channel is a communication mechanism that allow one goroutine to pass values of a specified type to another goroutine. The function main runs in a goroutine and the go statement creates additional goroutines.
+Each fetch sends a value (ch <- expression) on the channel ch, and main receives all of them (<-ch). Having main do all the printing ensures that output from each goroutine is processed as a unit, no danger of interleaving if two goroutines finish at the same time
+- Exercise 
+  - 1.10 - was able to print the output to a file and facebook and google were always consistent. Something to note is the internet speed and if google and facebook has special cashing for any requests
+  - 1.11 - program broke after adding a new site that returns a 404 but accidentally left a '/' in the url and this was also the last argument. I suspect that there's something happening in the channels that a simple '/' broke the response second output. Must see in Section 8.9 for coping outputs
+  - 1.11 - IN ERRATUM - it was because the io.Copy was being executed before the lesson's own io.Copy thus making the bytes seem none.
 
-
+### Web Server
 
 
 ## References

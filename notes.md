@@ -21,5 +21,5 @@ writer is the interface that wraps the basic Write method
 
 ### io.Discard
 Discard is a Writer on which all write calls succeed without doing anything.
-i.e. a blackhole
+i.e. a blackhole (Patapon)
 

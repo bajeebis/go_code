@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"io"
+	"math/rand/v2"
 	"net/http"
 	"os"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -28,12 +31,28 @@ func fetch(url string, ch chan<- string) {
 		return
 	}
 
-	nbytes, err := io.Copy(io.Discard, resp.Body)
+	var filename string
+	uniqueNo := strconv.Itoa(rand.Int())
+	if strings.HasPrefix(url, "https://") {
+		filename = strings.TrimPrefix(url, "https://")
+	} else if strings.HasPrefix(url, "http://") {
+		filename = strings.TrimPrefix(url, "http://")
+		// Check strings.cutprefix
+	}
+	out, fileError := os.Create(filename + uniqueNo + "_body.txt")
+	if fileError != nil {
+		fmt.Fprintf(os.Stderr, "Error writing to %s: %v\n", filename+uniqueNo+"_body.txt", fileError)
+	}
+	defer out.Close()
+	// io.Copy(out, resp.Body)
+
+	nbytes, err := io.Copy(out, resp.Body)
 	resp.Body.Close() // don't leak resources
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
 		return
 	}
+
 	secs := time.Since(start).Seconds()
 	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 }
