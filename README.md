@@ -1,4 +1,4 @@
-Chapter 1
+## Chapter 1
 
 Basics & Duplicate Code
 
@@ -34,6 +34,15 @@ for {
 
 ## Make
 make for the most part is allocation of memory to the buffer
+
+## Channels
+A communication mechanism
+- Create a new channel with make(chan val-type)
+- Send a value into a channel using the channel <- syntax
+- The <-channel syntax receivs a value from the channel
+
+## Go routines
+goroutine, concurrent function execution. Channels are important in goroutne's
 
 ## Printf verb tables
 %d          decimal integer
