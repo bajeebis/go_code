@@ -11,13 +11,13 @@ var s = "" < Rarely used except declaring multiple var
 var s string = "" < redundant but ncessary in other cases where they are not of the same type
 
 
-## Maps
+### Maps
 A map is a reference to the data structure created by make. When a map is passed to a function, the function receives a copy of the reference, so any changes the called function makes to the underlying data structure will be visible through the caller’s map reference too.
 In our example, the values inserted into the counts map by countLines are seen by main.
 
 
 
-## Loops
+### Loops
 for initialization; condition; post {
     // zero or more statements
 }
@@ -32,19 +32,19 @@ for {
   // ...
 }
 
-## Make
+### Make
 make for the most part is allocation of memory to the buffer
 
-## Channels
+### Channels
 A communication mechanism
 - Create a new channel with make(chan val-type)
 - Send a value into a channel using the channel <- syntax
 - The <-channel syntax receivs a value from the channel
 
-## Go routines
+### Go routines
 goroutine, concurrent function execution. Channels are important in goroutne's
 
-## Printf verb tables
+### Printf verb tables
 %d          decimal integer
 %x, %o, %b  integer in hexadecimal, octal, binary
 %f, %g, %e  floating-point number
