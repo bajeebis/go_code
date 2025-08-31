@@ -81,7 +81,8 @@ Each fetch sends a value (ch <- expression) on the channel ch, and main receives
   - 1.11 - IN ERRATUM - it was because the io.Copy was being executed before the lesson's own io.Copy thus making the bytes seem none.
 
 ### Web Server
-
+Race condition is avoided via mu.Lock() (sync.Mutex)
+ParseForm is nested within an if statement. This allows a local variable declaration that precedes the if condition.
 
 ## References
 dup 1 good reference: https://stackoverflow.com/a/49715256
