@@ -3,3 +3,16 @@ inefficient versions and the one that uses strings.Join. (Section 1.6 illustrate
 time package, and Sec tion 11.4 shows how to write benchmark tests for systematic per-
 formance evaluation.)
 - Check how the %d works in 1.5 fetch go
+
+These functions:
+```Go
+var p = f()
+func f() *int { // Why is the pointer here
+  v := 1
+  return &v
+}
+
+func incr(p *int) int { // Now why is it here
+
+}
+```

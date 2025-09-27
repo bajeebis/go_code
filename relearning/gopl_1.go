@@ -1,9 +1,13 @@
+package main
 
+import "fmt"
 
-func func main() {
-	counts := make(map[string]int)
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		counts
-	}
+func main() {
+	vars()
+}
+
+func vars() {
+	x := 1
+	p := &x
+	fmt.Println(*p)
 }

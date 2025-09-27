@@ -70,3 +70,6 @@ Variables are sometimes described as *addressable values*. Expressions that deno
 
 The zero value for a pointer of any type is nil.
 Pointers are comparable; two pointers are equal if and only if they point to the same variable or both are nil.
+      var x, y int
+      fmt.Println(&x == &x, &x == &y, &x == nil) // "true false false"
+
