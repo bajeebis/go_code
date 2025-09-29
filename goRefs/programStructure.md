@@ -73,3 +73,11 @@ Pointers are comparable; two pointers are equal if and only if they point to the
       var x, y int
       fmt.Println(&x == &x, &x == &y, &x == nil) // "true false false"
 
+## The new Function
+The expresion new(T) creates an *unnamed variable*  of type T, initializes it to the zro value of T, and returns its address which is a value of type *T.
+      p := new(int)     // p, of type *int, points to an unnamed int variable
+      fmt.Println(*p)   // "0"
+      *p = 2            // sets the unnamed int to 2
+      fmt.Println(*p)  // "2"
+For syntactic convenience, not a fundamental notion.
+two variables whose type carries no information and is therefore of size zero, such as **struct{}** or [0]int, may, depending on the implementation, have the same address.
