@@ -57,7 +57,9 @@ Declarations with multiple initializer expressions should be used only when they
       := is a declaration
        = is an assignment
 ```
+
       *A multi-variable declration should not be confused with a tuple assignment*
+
 An important note: A short variable declaration does not necessarily declare all the variable on its left-hand side. If some of them were already declared in the *same* lexical block, then the short variable declaration acts like an *assignment* to those variables.
 
 
